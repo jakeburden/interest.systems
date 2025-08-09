@@ -1,0 +1,8 @@
+[workspace]
+members = [
+  "programs/interest_vault",
+  "tests/litesvm",
+]
+resolver = "2"
+
+

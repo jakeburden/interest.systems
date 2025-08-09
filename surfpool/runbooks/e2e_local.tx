@@ -1,0 +1,22 @@
+// Example: call deposit via raw instruction bytes.
+// You can also feed an IDL and use `instruction_name` + args once you export one.
+
+addon "svm" {
+  network_id = input.network_id
+  rpc_api_url = input.rpc_api_url
+}
+
+signer "payer" "svm::web_wallet" {}
+variable "program_id" { value = "Interest111111111111111111111111111111111" } // TODO: replace with real ID
+
+action "deposit_call" "svm::process_instructions" {
+  description = "Deposit 1 USDC into vault"
+  instruction {
+    program_id = variable.program_id
+    // raw_bytes = base64("DEPOSIT data") – but since raw base64 helper is coming,
+    // best to assemble using your TS client or IDL flows and paste here.
+  }
+  signers = [signer.payer]
+}
+
+

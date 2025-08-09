@@ -1,0 +1,13 @@
+---
+name: interest-systems
+runbooks:
+  - name: Deploy Local
+    location: ./runbooks/deploy_local.tx
+  - name: E2E Local
+    location: ./runbooks/e2e_local.tx
+environments:
+  local:
+    network_id: localnet
+    rpc_api_url: http://127.0.0.1:8899
+
+

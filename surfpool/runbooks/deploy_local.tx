@@ -1,0 +1,25 @@
+// Deploy the interest_vault program to surfpool localnet.
+// Requires: `surfpool start` running in this folder.
+
+addon "svm" {
+  network_id = input.network_id
+  rpc_api_url = input.rpc_api_url
+}
+
+signer "authority" "svm::web_wallet" {
+  // connect wallet in surfpool UI
+}
+
+action "deploy_program" "svm::deploy_program" {
+  description = "Deploy interest_vault"
+  program = {
+    // using filesystem helpers is coming; for now, drop compiled files in ./artifacts
+    idl = file("./artifacts/interest_vault.idl.json")   // optional
+    binary = file("./artifacts/interest_vault.so")
+    keypair = file("./artifacts/interest_vault-keypair.json")
+    program_id = "Interest111111111111111111111111111111111" // TODO: replace with real ID
+  }
+  authority = signer.authority
+}
+
+

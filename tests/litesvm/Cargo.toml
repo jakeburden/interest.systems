@@ -1,0 +1,15 @@
+[package]
+name = "interest_litesvm_tests"
+version = "0.1.0"
+edition = "2021"
+
+[dev-dependencies]
+litesvm = "0.6"
+solana_message = "2.2"
+solana_pubkey = "2.2"
+solana_instruction = "2.2"
+solana_keypair = "2.2"
+solana_signer = "2.2"
+solana_transaction = "2.2"
+
+

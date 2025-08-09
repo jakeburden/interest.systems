@@ -1,0 +1,17 @@
+[package]
+name = "interest_vault"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+# Enable this when producing the BPF .so
+bpf-entrypoint = []
+
+[dependencies]
+pinocchio = { version = "0.9.0", default-features = false }
+bytemuck = { version = "1.18", features = ["derive"] }
+
+
